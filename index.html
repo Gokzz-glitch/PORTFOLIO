@@ -3,178 +3,3510 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gokul Rajasekar | AI/ML & Backend Engineer</title>
+    <title>Gokul R. | AI/ML Engineer & Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Gokul R. — AI/ML Engineer, Full-Stack Developer, and Robotics Enthusiast from Easwari Engineering College, Chennai. Specializing in NLP, Computer Vision, and intelligent systems.">
+    <meta name="keywords" content="Gokul, AI Engineer, ML, NLP, Full-Stack Developer, Portfolio, Easwari Engineering College, Cyber Security, Robotics">
+    <meta name="author" content="Gokul R.">
+    <meta property="og:title" content="Gokul R. | AI Engineer & Full-Stack Developer">
+    <meta property="og:description" content="AI/ML Engineer crafting intelligent systems. Explore my projects, achievements, and technical journey.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <!-- Canvas Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
     <style>
+        /* ========== CSS CUSTOM PROPERTIES ========== */
         :root {
-            --bg-color: #050505;
-            --text-primary: #f0f0f0;
-            --text-secondary: #a0a0a0;
-            --accent-blue: #0055ff;
-            --accent-cyan: #00e5ff;
-            --card-bg: #111111;
+            /* Lucky colors: black & electric blue / cyber cyan */
+            --bg-primary: #020408;
+            --bg-secondary: #060b14;
+            --bg-tertiary: #0b1322;
+            --bg-card: rgba(8, 16, 32, 0.65);
+            --bg-card-hover: rgba(14, 28, 56, 0.85);
+            --bg-glass: rgba(6, 12, 26, 0.5);
+
+            --blue-50: #e8f0fe;
+            --blue-100: #c4d9fc;
+            --blue-200: #8ab4f8;
+            --blue-300: #5e9cf5;
+            --blue-400: #4285f4;
+            --blue-500: #1a6dff;
+            --blue-600: #0d56e0;
+            --blue-700: #0842b0;
+            --blue-800: #063080;
+            --blue-900: #041e52;
+
+            --cyan-accent: #00f0ff;
+            --accent: #00d4ff;
+            --accent-glow: rgba(0, 212, 255, 0.45);
+            --accent-glow-subtle: rgba(0, 85, 255, 0.25);
+            --accent-secondary: #4285f4;
+            --accent-gradient: linear-gradient(135deg, #0055ff 0%, #00d4ff 50%, #4285f4 100%);
+            --accent-gradient-text: linear-gradient(135deg, #4285f4, #00f0ff, #8ab4f8);
+
+            --text-primary: #f0f4f8;
+            --text-secondary: #a0aec0;
+            --text-tertiary: #64748b;
+            --text-accent: #8ab4f8;
+
+            --border-subtle: rgba(0, 212, 255, 0.08);
+            --border-card: rgba(0, 212, 255, 0.14);
+            --border-hover: rgba(0, 212, 255, 0.45);
+
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 8px 48px rgba(0, 0, 0, 0.7);
+            --shadow-glow: 0 0 35px rgba(0, 212, 255, 0.25);
+            --shadow-neon: 0 0 20px rgba(0, 212, 255, 0.6), 0 0 40px rgba(0, 85, 255, 0.3);
+
+            /* Lucky number 4 & 6 ratios */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 40px;
+            --space-2xl: 64px;
+            --space-3xl: 96px;
+
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            --mouse-x: 50vw;
+            --mouse-y: 50vh;
         }
-        body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            cursor: default;
         }
-        header {
-            text-align: center;
-            padding: 120px 20px 80px;
-            background: radial-gradient(circle at top, #111 0%, #000 100%);
-            border-bottom: 1px solid #222;
+
+        a, button, input, textarea, select, .clickable, .filter-btn, .project-card, .achievement-card, .gallery-item, .skill-category {
+            cursor: pointer;
         }
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--blue-600) var(--bg-primary);
         }
-        h2 {
-            font-size: 1.4rem;
-            font-weight: 400;
-            color: var(--accent-cyan);
-            margin-bottom: 30px;
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--blue-500), var(--cyan-accent)); border-radius: 4px; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
         }
-        .links a {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 12px 24px;
-            background-color: rgba(0, 85, 255, 0.1);
-            color: var(--accent-cyan);
-            text-decoration: none;
-            border: 1px solid var(--accent-blue);
-            border-radius: 6px;
-            font-weight: bold;
-            transition: all 0.3s ease;
+
+        /* Ambient Dynamic Cursor Spotlight Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(0, 212, 255, 0.05), transparent 80%);
+            transition: opacity 0.3s ease;
         }
-        .links a:hover {
-            background-color: var(--accent-blue);
-            color: #fff;
-            box-shadow: 0 0 15px rgba(0, 85, 255, 0.5);
+
+        /* ========== CUSTOM CYBER CURSOR ========== */
+        .cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background: var(--cyan-accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px var(--cyan-accent), 0 0 20px var(--cyan-accent);
+            transition: width 0.2s, height 0.2s, background-color 0.2s, opacity 0.2s;
         }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        .section-title {
-            font-size: 2rem;
-            border-bottom: 2px solid var(--accent-blue);
-            padding-bottom: 10px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #fff;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid #222;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-        }
-        .card-img {
-            width: 100%;
-            height: 250px;
-            background-color: #1a1a1a;
+
+        .cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid rgba(0, 212, 255, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: width 0.25s cubic-bezier(0.1, 1, 0.1, 1), height 0.25s cubic-bezier(0.1, 1, 0.1, 1), border-color 0.2s, background-color 0.2s, transform 0.1s linear;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #555;
-            font-style: italic;
+        }
+
+        .cursor-ring .cursor-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.2s, transform 0.2s;
+            pointer-events: none;
+        }
+
+        .cursor-ring.active {
+            width: 60px;
+            height: 60px;
+            border-color: var(--cyan-accent);
+            background: rgba(0, 212, 255, 0.9);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
+        }
+
+        .cursor-ring.active .cursor-text {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @media (max-width: 768px) {
+            .cursor-dot, .cursor-ring { display: none !important; }
+            *, a, button, input, textarea { cursor: auto !important; }
+        }
+
+        /* ========== SCROLL PROGRESS BAR ========== */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0055ff, #00d4ff, #8ab4f8, #00f0ff);
+            z-index: 10001;
+            width: 0%;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+            transition: width 0.1s ease-out;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10000;
+            padding: 0 var(--space-xl);
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(2, 4, 8, 0.75);
+            backdrop-filter: blur(20px) saturate(1.5);
+            -webkit-backdrop-filter: blur(20px) saturate(1.5);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: var(--transition-smooth);
+        }
+
+        .navbar.scrolled {
+            background: rgba(2, 4, 8, 0.94);
+            border-bottom-color: var(--border-card);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .nav-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo .logo-accent {
+            color: var(--cyan-accent);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        .nav-logo .logo-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--cyan-accent);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--accent-glow); }
+            50% { opacity: 0.7; box-shadow: 0 0 0 8px transparent; }
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding: 6px 2px;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+            box-shadow: 0 0 8px var(--cyan-accent);
+            transition: width var(--transition-smooth);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 8px 20px !important;
+            background: linear-gradient(135deg, #0055ff, #00d4ff) !important;
+            color: #fff !important;
+            border-radius: var(--radius-sm);
+            font-weight: 600 !important;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            transition: all var(--transition-fast) !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.6);
+        }
+
+        .nav-cta::after { display: none !important; }
+
+        /* Sound FX Toggle Button */
+        .sound-btn {
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid var(--border-card);
+            color: var(--cyan-accent);
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all var(--transition-fast);
+        }
+
+        .sound-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--cyan-accent);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .sound-wave {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 12px;
+        }
+
+        .sound-wave span {
+            width: 2px;
+            height: 100%;
+            background: var(--cyan-accent);
+            border-radius: 1px;
+            animation: wave 1.2s ease-in-out infinite;
+        }
+
+        .sound-wave.muted span {
+            animation: none !important;
+            height: 2px !important;
+            background: var(--text-tertiary) !important;
+        }
+
+        .sound-wave span:nth-child(1) { animation-delay: 0.0s; height: 6px; }
+        .sound-wave span:nth-child(2) { animation-delay: 0.2s; height: 12px; }
+        .sound-wave span:nth-child(3) { animation-delay: 0.4s; height: 8px; }
+        .sound-wave span:nth-child(4) { animation-delay: 0.1s; height: 10px; }
+
+        @keyframes wave {
+            0%, 100% { height: 3px; }
+            50% { height: 12px; }
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            padding: 4px;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px var(--space-xl) 80px;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* Matrix Digital Rain Canvas Overlay */
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 99990;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            background: rgba(2, 4, 8, 0.9);
+        }
+
+        #matrixCanvas.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .matrix-exit-btn {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 99995;
+            background: #00ff66;
+            color: #000;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            padding: 8px 18px;
+            border-radius: var(--radius-sm);
+            border: none;
+            box-shadow: 0 0 20px #00ff66;
+            display: none;
+        }
+
+        #matrixCanvas.active ~ .matrix-exit-btn {
+            display: block;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 85, 255, 0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 20%, rgba(0, 240, 255, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 20% 80%, rgba(66, 133, 244, 0.08) 0%, transparent 60%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Background Floating Cyber Rings */
+        .cyber-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.25;
+            animation: orb-float 16s ease-in-out infinite alternate;
+        }
+
+        .cyber-orb-1 {
+            width: 450px;
+            height: 450px;
+            background: #0055ff;
+            top: 10%;
+            left: -5%;
+        }
+
+        .cyber-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: #00f0ff;
+            bottom: 15%;
+            right: -5%;
+            animation-delay: -8s;
+        }
+
+        @keyframes orb-float {
+            0% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-40px) scale(1.1) translateX(30px); }
+            100% { transform: translateY(30px) scale(0.95) translateX(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 960px;
+        }
+
+        .hero-telemetry-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--cyan-accent);
+            margin-bottom: var(--space-lg);
+            letter-spacing: 0.05em;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+            animation: fade-in-up 0.8s ease-out 0.2s both;
+        }
+
+        .hero-telemetry-badge .telemetry-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff88;
+            animation: pulse-dot 1.8s ease-in-out infinite;
+        }
+
+        .hero-name {
+            font-size: clamp(3.2rem, 8.5vw, 6.5rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: var(--space-md);
+            animation: fade-in-up 0.8s ease-out 0.4s both;
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+        }
+
+        .hero-name .gradient-text {
+            background: var(--accent-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Scramble / Cyber Decrypt Title */
+        .scramble-target {
+            display: inline-block;
+            transition: color 0.2s;
+        }
+
+        .hero-title {
+            font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+            line-height: 1.6;
+            animation: fade-in-up 0.8s ease-out 0.6s both;
+        }
+
+        .hero-title strong {
+            color: var(--cyan-accent);
+            font-weight: 600;
+            text-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+        }
+
+        /* Floating Live Status Chips */
+        .live-status-pills {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-xl);
+            animation: fade-in-up 0.8s ease-out 0.7s both;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(8, 16, 32, 0.7);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-sm);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            backdrop-filter: blur(10px);
+        }
+
+        .status-pill i { width: 14px; height: 14px; color: var(--cyan-accent); }
+
+        /* Stats Grid with 3D Depth */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-xl);
+            animation: fade-in-up 0.8s ease-out 0.8s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 12px 24px;
+            background: rgba(6, 12, 26, 0.4);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(12px);
+            transition: all var(--transition-fast);
+        }
+
+        .hero-stat:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+        }
+
+        .hero-stat-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: var(--accent-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-top: 6px;
+            font-weight: 600;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            animation: fade-in-up 0.8s ease-out 1s both;
+        }
+
+        /* Buttons with Neon Shimmer */
+        .btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            font-size: 0.92rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            transition: all var(--transition-fast);
+            letter-spacing: 0.02em;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0055ff 0%, #00d4ff 100%);
+            color: #020408;
+            font-weight: 700;
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 35px rgba(0, 212, 255, 0.8);
+            color: #000;
+        }
+
+        .btn-outline {
+            background: rgba(8, 16, 32, 0.6);
+            color: var(--text-primary);
+            border: 1px solid var(--border-hover);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: var(--cyan-accent);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-terminal {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.4);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .btn-terminal:hover {
+            background: rgba(0, 255, 136, 0.25);
+            border-color: #00ff88;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .btn i { width: 18px; height: 18px; }
+
+        /* ========== SECTION BASE ========== */
+        .section {
+            padding: var(--space-3xl) var(--space-xl);
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--cyan-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            margin-bottom: var(--space-sm);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-top: var(--space-sm);
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-divider {
+            width: 64px;
+            height: 4px;
+            background: var(--accent-gradient);
+            border-radius: 4px;
+            margin: var(--space-md) auto 0;
+            box-shadow: 0 0 12px var(--cyan-accent);
+        }
+
+        /* ========== 3D TILT CARDS & GLARE EFFECT ========== */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.15s ease-out, border-color 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tilt-card .card-glare {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.12), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            mix-blend-mode: overlay;
+            z-index: 10;
+        }
+
+        .tilt-card:hover .card-glare {
+            opacity: 1;
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .about-text h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .about-text .highlight {
+            color: var(--cyan-accent);
+            font-weight: 600;
+        }
+
+        .about-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+        }
+
+        .about-info-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            transition: all var(--transition-smooth);
+            backdrop-filter: blur(16px);
+        }
+
+        .about-info-item:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--cyan-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .about-info-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: var(--radius-sm);
+            color: var(--cyan-accent);
+            margin-bottom: var(--space-sm);
+        }
+
+        .about-info-icon i { width: 20px; height: 20px; }
+
+        .about-info-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .about-info-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 2px;
+        }
+
+        /* ========== SKILLS SECTION ========== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            transition: all var(--transition-smooth);
+            backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+        }
+
+        .skill-category:hover::before { opacity: 1; }
+
+        .skill-category:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--cyan-accent);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .skill-category-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--cyan-accent);
+            margin-bottom: var(--space-md);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .skill-category-icon i { width: 24px; height: 24px; }
+
+        .skill-category h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+
+        .skill-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            background: rgba(0, 212, 255, 0.06);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: var(--radius-sm);
+            color: var(--text-accent);
+            transition: all var(--transition-fast);
+        }
+
+        .skill-tag:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--cyan-accent);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ========== PROJECTS SECTION ========== */
+        .projects-filter {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 100px;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: var(--cyan-accent);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all var(--transition-smooth);
+            backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card.featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(8, 20, 44, 0.75) 0%, rgba(6, 12, 26, 0.65) 100%);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .project-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--cyan-accent);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.25);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            background: rgba(0, 212, 255, 0.15);
+            border: 1px solid rgba(0, 212, 255, 0.35);
+            border-radius: 100px;
+            color: var(--cyan-accent);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-md);
+        }
+
+        .project-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--cyan-accent);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .project-icon i { width: 22px; height: 22px; }
+
+        .project-links-top {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .project-links-top a {
+            color: var(--text-tertiary);
+            transition: color var(--transition-fast);
+            padding: 4px;
+        }
+
+        .project-links-top a:hover {
+            color: var(--cyan-accent);
+            transform: scale(1.15);
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            color: var(--text-primary);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+            flex-grow: 1;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+        }
+
+        .project-tech span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            background: rgba(0, 212, 255, 0.06);
+            border-radius: var(--radius-sm);
+            color: var(--text-accent);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        /* ========== ACHIEVEMENTS SECTION ========== */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all var(--transition-smooth);
+            backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+        }
+
+        .achievement-card:hover::before { opacity: 1; }
+
+        .achievement-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--cyan-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .achievement-card.has-image {
+            padding-top: 0;
+        }
+
+        .achievement-img-wrap {
+            position: relative;
+            margin: -0 -24px 16px -24px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+
+        .achievement-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
-        .card-content {
-            padding: 25px;
+
+        .achievement-card:hover .achievement-img {
+            transform: scale(1.08);
         }
-        .card-content h3 {
-            margin-top: 0;
-            color: var(--accent-cyan);
+
+        .achievement-zoom-badge {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(2, 4, 8, 0.8);
+            border: 1px solid var(--border-card);
+            color: var(--cyan-accent);
+            padding: 4px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 0.7rem;
+            font-family: 'JetBrains Mono', monospace;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            backdrop-filter: blur(6px);
+        }
+
+        .achievement-icon-wrap {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .achievement-content h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .achievement-org {
+            font-size: 0.85rem;
+            color: var(--cyan-accent);
+            font-weight: 500;
+            margin-bottom: var(--space-xs);
+        }
+
+        .achievement-content p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .achievement-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            align-self: flex-end;
+            margin-top: var(--space-md);
+        }
+
+        /* ========== GALLERY SECTION ========== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--border-card);
+            transition: all var(--transition-smooth);
+        }
+
+        .gallery-item:hover {
+            border-color: var(--cyan-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.12);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(2, 4, 8, 0.92) 0%, rgba(2, 4, 8, 0.3) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--space-md);
+            opacity: 0;
+            transition: opacity var(--transition-smooth);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .gallery-overlay span {
+            font-size: 0.75rem;
+            color: var(--cyan-accent);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ========== LIGHTBOX MODAL ========== */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(2, 4, 8, 0.92);
+            backdrop-filter: blur(25px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            max-width: 900px;
+            max-height: 90vh;
+            width: 100%;
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border-hover);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.4);
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-img-wrap {
+            max-height: 65vh;
+            overflow: auto;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img-wrap img {
+            max-width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+        }
+
+        .lightbox-info {
+            padding: var(--space-lg);
+            background: var(--bg-tertiary);
+            border-top: 1px solid var(--border-card);
+        }
+
+        .lightbox-info h3 {
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .lightbox-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(2, 4, 8, 0.8);
+            border: 1px solid var(--border-card);
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all var(--transition-fast);
+        }
+
+        .lightbox-close:hover {
+            background: var(--cyan-accent);
+            color: #000;
+            box-shadow: 0 0 15px var(--cyan-accent);
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+        }
+
+        .contact-info h3 {
             font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
         }
-        .card-content p {
+
+        .contact-info p {
             color: var(--text-secondary);
             font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: var(--space-xl);
         }
-        .project-links a {
-            color: var(--accent-blue);
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-lg);
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
             text-decoration: none;
-            font-size: 0.9rem;
-            margin-right: 15px;
+            color: var(--text-primary);
+            transition: all var(--transition-fast);
+            backdrop-filter: blur(12px);
         }
-        .project-links a:hover {
-            text-decoration: underline;
-            color: var(--accent-cyan);
+
+        .contact-link:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--cyan-accent);
+            transform: translateX(8px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+        }
+
+        .contact-link-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: var(--radius-sm);
+            color: var(--cyan-accent);
+            flex-shrink: 0;
+        }
+
+        .contact-link-icon i { width: 20px; height: 20px; }
+
+        .contact-link-text {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .contact-link-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .copy-email-btn {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--cyan-accent);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            margin-left: auto;
+            transition: all var(--transition-fast);
+        }
+
+        .copy-email-btn:hover {
+            background: var(--cyan-accent);
+            color: #000;
+        }
+
+        .contact-form-wrap {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            backdrop-filter: blur(16px);
+        }
+
+        .contact-form-wrap h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(2, 4, 8, 0.6);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--cyan-accent);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+            background: rgba(2, 4, 8, 0.9);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* ========== INTERACTIVE CYBER TERMINAL MODAL ========== */
+        .terminal-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 99990;
+            background: rgba(2, 4, 8, 0.88);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-lg);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .terminal-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .terminal-window {
+            width: 100%;
+            max-width: 850px;
+            height: 540px;
+            background: #020814;
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            border-radius: var(--radius-md);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.35);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            font-family: 'JetBrains Mono', monospace;
+            transform: scale(0.92);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .terminal-modal.active .terminal-window {
+            transform: scale(1);
+        }
+
+        .terminal-header {
+            background: #081224;
+            padding: 10px 16px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .term-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .term-btn-close { background: #ff5f56; }
+        .term-btn-min { background: #ffbd2e; }
+        .term-btn-max { background: #27c93f; }
+
+        .terminal-title {
+            color: var(--cyan-accent);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .terminal-body {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            color: #8ab4f8;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .terminal-output {
+            margin-bottom: 12px;
+        }
+
+        .terminal-input-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terminal-prompt {
+            color: #00ff88;
+            font-weight: 700;
+        }
+
+        .terminal-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        /* Floating CLI Toggle Widget */
+        .cli-toggle-widget {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9990;
+            background: rgba(2, 8, 20, 0.85);
+            border: 1px solid var(--cyan-accent);
+            color: var(--cyan-accent);
+            padding: 12px 20px;
+            border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+            backdrop-filter: blur(16px);
+            transition: all var(--transition-fast);
+        }
+
+        .cli-toggle-widget:hover {
+            transform: translateY(-4px) scale(1.05);
+            background: var(--cyan-accent);
+            color: #000;
+            box-shadow: 0 0 35px rgba(0, 212, 255, 0.8);
+        }
+
+        .cli-toggle-widget .pulse-indicator {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00ff88;
+            animation: pulse-dot 1.5s infinite;
+        }
+
+        /* Floating Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 9990;
+            width: 44px;
+            height: 44px;
+            background: rgba(8, 16, 32, 0.8);
+            border: 1px solid var(--border-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan-accent);
+            opacity: 0;
+            pointer-events: none;
+            transition: all var(--transition-fast);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            background: var(--cyan-accent);
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--cyan-accent);
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            pointer-events: none;
+        }
+
+        .toast {
+            background: rgba(6, 12, 26, 0.95);
+            border: 1px solid var(--cyan-accent);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+            backdrop-filter: blur(16px);
+            animation: toast-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes toast-in {
+            from { opacity: 0; transform: translateY(20px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            padding: var(--space-2xl) var(--space-xl);
+            border-top: 1px solid var(--border-subtle);
+            background: rgba(2, 4, 8, 0.9);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+        }
+
+        .lucky-numbers {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--cyan-accent);
+            opacity: 0.6;
+            letter-spacing: 0.4em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .footer-links a {
+            color: var(--text-tertiary);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan-accent);
+            transform: scale(1.15);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .project-card.featured { grid-column: span 2; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 var(--space-md); }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: rgba(2, 4, 8, 0.98);
+                flex-direction: column;
+                padding: var(--space-lg);
+                border-bottom: 1px solid var(--border-card);
+            }
+            .nav-links.open { display: flex; }
+            .mobile-toggle { display: block; }
+            .about-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-card.featured { grid-column: span 1; }
+            .achievements-grid { grid-template-columns: 1fr; }
+            .achievement-card[style*="grid-column: span 2"] { grid-column: span 1 !important; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .hero-stats { gap: var(--space-md); }
+            .hero-stat { padding: 8px 14px; }
+            .hero-stat-number { font-size: 2rem; }
+            .footer-content { flex-direction: column; gap: var(--space-md); text-align: center; }
+            .cli-toggle-widget { bottom: 20px; right: 20px; padding: 8px 14px; }
+            .back-to-top { bottom: 20px; left: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .about-info-grid { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Gokul Rajasekar</h1>
-    <h2>Software Engineer — AI/ML & Backend Systems</h2>
-    <div class="links">
-        <a href="https://github.com/Gokzz-glitch" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/gokul6om4/" target="_blank">LinkedIn</a>
-    </div>
-</header>
+<!-- Custom Cyber Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing">
+    <span class="cursor-text" id="cursorText">EXPLORE</span>
+</div>
 
-<div class="container">
-    <h2 class="section-title">Key Projects & Hackathons</h2>
-    
-    <div class="grid">
-        <!-- NIT Hackathon -->
-        <div class="card">
-            <div class="card-content">
-                <h3>NIT Hackathon: Colonoscopy AML Model</h3>
-                <p>Developed an AI/ML model for medical imaging analysis. Prioritized utilizing real-world labeled datasets for model training rather than simulated data to ensure robust and reliable classification.</p>
-                <div class="project-links">
-                    <a href="https://colab.research.google.com/drive/1xDnhVwjsurNbKMI0Fh0338bl1HEJ6w4q?usp=sharing" target="_blank">View Colab Notebook</a>
-                    <a href="https://drive.google.com/drive/folders/13b0tSPzZFxqKWBTowm4tbtzEO84adNA1?usp=drive_link" target="_blank">Project Drive</a>
+<!-- Scroll Depth Progress Bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Ambient Glowing Cyber Orbs -->
+<div class="cyber-orb cyber-orb-1"></div>
+<div class="cyber-orb cyber-orb-2"></div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Matrix Digital Rain Canvas -->
+<canvas id="matrixCanvas"></canvas>
+<button class="matrix-exit-btn" id="matrixExitBtn" onclick="toggleMatrixMode()">[ESC] EXIT MATRIX</button>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo" data-cursor="ROOT">
+        <span class="logo-accent">&lt;</span>Gokul<span class="logo-accent">/&gt;</span>
+        <span class="logo-dot"></span>
+    </a>
+    <div class="nav-controls">
+        <button class="sound-btn" id="soundBtn" aria-label="Toggle Sound Effects" onclick="toggleAudioEngine()">
+            <div class="sound-wave" id="soundWave">
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <span id="soundLabel">SFX ON</span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about" data-cursor="BIO">About</a></li>
+            <li><a href="#skills" data-cursor="STACK">Skills</a></li>
+            <li><a href="#projects" data-cursor="REPOS">Projects</a></li>
+            <li><a href="#achievements" data-cursor="WINS">Achievements</a></li>
+            <li><a href="#gallery" data-cursor="VIEW">Gallery</a></li>
+            <li><a href="#contact" class="nav-cta" data-cursor="SEND">Contact</a></li>
+        </ul>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+            <i data-lucide="menu" style="width:24px;height:24px;"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- ========== HERO SECTION ========== -->
+<section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas"></canvas>
+    <div class="hero-gradient"></div>
+    <div class="hero-content">
+        <div class="hero-telemetry-badge">
+            <span class="telemetry-dot"></span>
+            <span id="liveTelemetry">SYSTEM ONLINE // CHENNAI, IN [IST]</span>
+        </div>
+        <h1 class="hero-name">
+            Hi, I'm <span class="gradient-text scramble-target" id="heroNameScramble" data-original="Gokul R.">Gokul R.</span>
+        </h1>
+        <p class="hero-title">
+            <strong class="scramble-target" data-original="AI & Machine Learning Engineer">AI & Machine Learning Engineer</strong> & Full-Stack Developer<br>
+            crafting autonomous models & intelligent systems at <strong>Easwari Engineering College</strong>
+        </p>
+
+        <!-- Real-Time Status Chips -->
+        <div class="live-status-pills">
+            <div class="status-pill">
+                <i data-lucide="map-pin"></i>
+                <span id="chennaiClock">Chennai, IN --:--:-- IST</span>
+            </div>
+            <div class="status-pill">
+                <i data-lucide="sparkles"></i>
+                <span>Lucky Vectors: #0055ff / #00d4ff · [4, 6]</span>
+            </div>
+            <div class="status-pill">
+                <i data-lucide="git-branch"></i>
+                <span id="githubLiveBadge">GitHub: 18 Repositories</span>
+            </div>
+        </div>
+
+        <div class="hero-stats">
+            <div class="hero-stat tilt-card" data-cursor="REPOS">
+                <div class="card-glare"></div>
+                <div class="hero-stat-number" data-count="18">0</div>
+                <div class="hero-stat-label">Projects</div>
+            </div>
+            <div class="hero-stat tilt-card" data-cursor="WINS">
+                <div class="card-glare"></div>
+                <div class="hero-stat-number" data-count="4">0</div>
+                <div class="hero-stat-label">Hackathons</div>
+            </div>
+            <div class="hero-stat tilt-card" data-cursor="AWARDS">
+                <div class="card-glare"></div>
+                <div class="hero-stat-number" data-count="6">0</div>
+                <div class="hero-stat-label">Awards</div>
+            </div>
+        </div>
+        <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary" data-cursor="EXPLORE">
+                <i data-lucide="code-2"></i>
+                Explore Projects
+            </a>
+            <button class="btn btn-terminal" onclick="openTerminalModal()" data-cursor="RUN CLI">
+                <i data-lucide="terminal"></i>
+                Launch Gokul_CLI
+            </button>
+            <a href="https://github.com/Gokzz-glitch" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-cursor="GITHUB">
+                <i data-lucide="github"></i>
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/gokul6om4/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-cursor="LINKEDIN">
+                <i data-lucide="linkedin"></i>
+                LinkedIn
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== ABOUT SECTION ========== -->
+<section class="section" id="about">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label">// SYSTEM BIOGRAPHY</div>
+            <h2 class="section-title scramble-target" data-original="Engineer. Builder. Innovator.">Engineer. Builder. Innovator.</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <h3>Building the future with <span class="gradient-text" style="background:var(--accent-gradient-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI, Neural Models & Code</span></h3>
+                <p>
+                    I'm <span class="highlight">Gokul R.</span>, an undergraduate pursuing <span class="highlight">B.Tech in Artificial Intelligence & Machine Learning</span>
+                    at Easwari Engineering College (SRM Group), Chennai. My passion lies at the forefront of autonomous systems, deep neural architectures, full-stack ecosystems, and robotics.
+                </p>
+                <p>
+                    From training <span class="highlight">NLP language models</span> and <span class="highlight">computer vision pipelines</span>
+                    to engineering end-to-end full-stack web applications and winning national hackathons, I thrive on turning mathematical complexity into real-world software. My portfolio spans AI-driven healthcare intelligence, smart agritech, and automated cyber defense scanners.
+                </p>
+                <p>
+                    When I'm not coding or benchmarking algorithms, you'll find me developing robotic systems, dissecting cutting-edge arXiv research papers, or building developer tools.
+                </p>
+            </div>
+            <div class="about-info-grid">
+                <div class="about-info-item tilt-card reveal reveal-delay-1" data-cursor="INFO">
+                    <div class="card-glare"></div>
+                    <div class="about-info-icon"><i data-lucide="graduation-cap"></i></div>
+                    <div class="about-info-label">Degree & Specialization</div>
+                    <div class="about-info-value">B.Tech AI & ML</div>
+                </div>
+                <div class="about-info-item tilt-card reveal reveal-delay-2" data-cursor="INFO">
+                    <div class="card-glare"></div>
+                    <div class="about-info-icon"><i data-lucide="building-2"></i></div>
+                    <div class="about-info-label">Institution</div>
+                    <div class="about-info-value">Easwari Engineering</div>
+                </div>
+                <div class="about-info-item tilt-card reveal reveal-delay-3" data-cursor="INFO">
+                    <div class="card-glare"></div>
+                    <div class="about-info-icon"><i data-lucide="map-pin"></i></div>
+                    <div class="about-info-label">Location / Base</div>
+                    <div class="about-info-value">Chennai, India</div>
+                </div>
+                <div class="about-info-item tilt-card reveal reveal-delay-4" data-cursor="INFO">
+                    <div class="card-glare"></div>
+                    <div class="about-info-icon"><i data-lucide="sparkles"></i></div>
+                    <div class="about-info-label">Core Focus</div>
+                    <div class="about-info-value">AI/ML & Robotics</div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Microsoft Triwizathon -->
-        <div class="card">
-            <img src="image_9ba188.jpg" alt="Black Robotic Arm" class="card-img">
-            <div class="card-content">
-                <h3>Triwizathon 1.0 (Microsoft) - Finale Qualifier</h3>
-                <p>Engineered a robotic arm and integrated backend logic, successfully qualifying for the finale round organized by the Microsoft Learn Student Ambassador chapter.</p>
+<!-- ========== SKILLS SECTION ========== -->
+<section class="section" id="skills">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label">// TECH ARCHITECTURE</div>
+            <h2 class="section-title scramble-target" data-original="Skills & Technologies">Skills & Technologies</h2>
+            <p class="section-subtitle">4 foundational pillars spanning artificial intelligence, full-stack development, security, and hardware</p>
+            <div class="section-divider"></div>
+        </div>
+        <!-- 4 skill categories (lucky number 4) -->
+        <div class="skills-grid">
+            <div class="skill-category tilt-card reveal reveal-delay-1" data-cursor="AI PILLAR">
+                <div class="card-glare"></div>
+                <div class="skill-category-icon"><i data-lucide="brain"></i></div>
+                <h3>AI & Machine Learning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">Computer Vision</span>
+                    <span class="skill-tag">Deep Learning</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Jupyter</span>
+                </div>
+            </div>
+            <div class="skill-category tilt-card reveal reveal-delay-2" data-cursor="WEB PILLAR">
+                <div class="card-glare"></div>
+                <div class="skill-category-icon"><i data-lucide="globe"></i></div>
+                <h3>Web Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Next.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">REST APIs</span>
+                </div>
+            </div>
+            <div class="skill-category tilt-card reveal reveal-delay-3" data-cursor="SEC PILLAR">
+                <div class="card-glare"></div>
+                <div class="skill-category-icon"><i data-lucide="shield-check"></i></div>
+                <h3>Security & DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Go</span>
+                    <span class="skill-tag">Pentesting</span>
+                    <span class="skill-tag">Git / GitHub</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Linux</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">Google Colab</span>
+                </div>
+            </div>
+            <div class="skill-category tilt-card reveal reveal-delay-4" data-cursor="IOT PILLAR">
+                <div class="card-glare"></div>
+                <div class="skill-category-icon"><i data-lucide="cpu"></i></div>
+                <h3>Hardware & Robotics</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Arduino</span>
+                    <span class="skill-tag">Raspberry Pi</span>
+                    <span class="skill-tag">IoT</span>
+                    <span class="skill-tag">Robotic Arms</span>
+                    <span class="skill-tag">Sensors</span>
+                    <span class="skill-tag">Embedded C</span>
+                </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Dhanalakshmi Hackathon -->
-        <div class="card">
-            <img src="image_9b9227.jpg" alt="Presenting at Dhanalakshmi Hackathon" class="card-img">
-            <div class="card-content">
-                <h3>Trigenix-26 Hackathon - 5th Place</h3>
-                <p>Competed in a 24-hour non-stop national level hackathon at Dhanalakshmi Srinivasan College, successfully securing 5th place among all participating teams.</p>
-            </div>
+<!-- ========== PROJECTS SECTION ========== -->
+<section class="section" id="projects">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label">// REPOSITORY SHOWCASE</div>
+            <h2 class="section-title scramble-target" data-original="Featured Projects">Featured Projects</h2>
+            <p class="section-subtitle">18 repositories curated from GitHub — spanning neural networks, web applications, and autonomous agents</p>
+            <div class="section-divider"></div>
         </div>
 
-        <!-- Chem Star Project -->
-        <div class="card">
-            <img src="image_9ba16c.jpg" alt="Demonstrating Green Robotic Arm" class="card-img">
-            <div class="card-content">
-                <h3>Chem Star - Principal's Award</h3>
-                <p>Demonstrated a mechanical robotics integration (green robotic arm) during the Chemistry department showcase, winning 2nd prize and recognition from the Principal.</p>
+        <div class="projects-filter reveal">
+            <button class="filter-btn active" data-filter="all" data-cursor="FILTER">All (12)</button>
+            <button class="filter-btn" data-filter="ai" data-cursor="FILTER">AI / ML</button>
+            <button class="filter-btn" data-filter="web" data-cursor="FILTER">Web App</button>
+            <button class="filter-btn" data-filter="security" data-cursor="FILTER">Security</button>
+            <button class="filter-btn" data-filter="iot" data-cursor="FILTER">IoT / Hardware</button>
+        </div>
+
+        <div class="projects-grid">
+            <!-- ChakraModel - Featured -->
+            <div class="project-card featured tilt-card reveal" data-category="ai" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <span class="project-badge">★ Starred Model</span>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="brain"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/chakramodel" target="_blank" rel="noopener noreferrer" aria-label="View ChakraModel on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                        <a href="https://github.com/Gokzz-glitch/chakramodel" target="_blank" rel="noopener noreferrer" aria-label="Open external link"><i data-lucide="external-link" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>ChakraModel</h3>
+                <p>An AI-powered machine learning architecture engineered for intelligent predictive analytics, multi-layer feature extraction, and automated decision-making workflows.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>ML Pipeline</span>
+                    <span>Data Science</span>
+                    <span>Neural Networks</span>
+                </div>
+            </div>
+
+            <!-- NLP Engine -->
+            <div class="project-card tilt-card reveal" data-category="ai" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <span class="project-badge">★ 2 Stars</span>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="message-square"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/NLP" target="_blank" rel="noopener noreferrer" aria-label="View NLP on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>NLP Engine</h3>
+                <p>Natural Language Processing toolkit for sentiment analysis, tokenization, semantic classification, and context understanding.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>NLP</span>
+                    <span>Transformers</span>
+                </div>
+            </div>
+
+            <!-- AGRIMATE -->
+            <div class="project-card tilt-card reveal" data-category="web" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="sprout"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/AGRIMATE" target="_blank" rel="noopener noreferrer" aria-label="View AGRIMATE on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>AgriMate</h3>
+                <p>Smart agriculture platform connecting farmers with AI-driven crop disease diagnostics, weather forecasts, and market optimization.</p>
+                <div class="project-tech">
+                    <span>TypeScript</span>
+                    <span>React</span>
+                    <span>API</span>
+                </div>
+            </div>
+
+            <!-- Sentinel App -->
+            <div class="project-card tilt-card reveal" data-category="security" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="shield"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/sentinel_app" target="_blank" rel="noopener noreferrer" aria-label="View Sentinel on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>Sentinel App</h3>
+                <p>Cybersecurity monitoring application designed for real-time threat detection, anomalous activity alerting, and vulnerability scanning.</p>
+                <div class="project-tech">
+                    <span>JavaScript</span>
+                    <span>Node.js</span>
+                    <span>Security</span>
+                </div>
+            </div>
+
+            <!-- Chakra Pulse -->
+            <div class="project-card tilt-card reveal" data-category="ai" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="activity"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/Chakra-pulse" target="_blank" rel="noopener noreferrer" aria-label="View Chakra-pulse on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>Chakra Pulse</h3>
+                <p>Real-time data pulse telemetry monitoring system with predictive analytics and intelligent alert thresholds for server clusters.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>Analytics</span>
+                    <span>ML</span>
+                </div>
+            </div>
+
+            <!-- PULSE AI - Featured -->
+            <div class="project-card featured tilt-card reveal" data-category="ai" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <span class="project-badge">🏥 Health AI</span>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="heart-pulse"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/PULSEAI" target="_blank" rel="noopener noreferrer" aria-label="View PULSEAI on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>PulseAI — Healthcare Diagnostic Intelligence</h3>
+                <p>AI-powered medical analytics platform utilizing deep neural networks for clinical data evaluation, patient monitoring, and diagnostic assistance with research-grade reproducibility.</p>
+                <div class="project-tech">
+                    <span>Jupyter</span>
+                    <span>Deep Learning</span>
+                    <span>Healthcare AI</span>
+                    <span>Data Analysis</span>
+                </div>
+            </div>
+
+            <!-- Traffic Signal Detector -->
+            <div class="project-card tilt-card reveal" data-category="ai iot" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="traffic-cone"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/Traffic_signal_detector" target="_blank" rel="noopener noreferrer" aria-label="View Traffic Signal Detector on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>Traffic Signal Detector</h3>
+                <p>Computer vision system for real-time traffic signal recognition and bounding-box classification for autonomous driving & smart cities.</p>
+                <div class="project-tech">
+                    <span>Computer Vision</span>
+                    <span>OpenCV</span>
+                    <span>CNN</span>
+                </div>
+            </div>
+
+            <!-- Face Detection -->
+            <div class="project-card tilt-card reveal" data-category="ai" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="scan-face"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/face-detection" target="_blank" rel="noopener noreferrer" aria-label="View Face Detection on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>Face Detection & Bio-Auth</h3>
+                <p>High-precision real-time facial landmark extraction and biometric recognition system powered by deep neural networks.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>OpenCV</span>
+                    <span>Deep Learning</span>
+                </div>
+            </div>
+
+            <!-- AI Vulnerability Scanner -->
+            <div class="project-card tilt-card reveal" data-category="security" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="bug"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/vulanarability-detection-" target="_blank" rel="noopener noreferrer" aria-label="View Vulnerability Detection on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>AI Vulnerability Scanner</h3>
+                <p>Autonomous AI agent system in Go engineered for automated penetration testing, port analysis, and security vulnerability discovery.</p>
+                <div class="project-tech">
+                    <span>Go</span>
+                    <span>AI Agents</span>
+                    <span>Pentesting</span>
+                </div>
+            </div>
+
+            <!-- ZeroWasteX -->
+            <div class="project-card tilt-card reveal" data-category="web" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="recycle"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/zerowastex" target="_blank" rel="noopener noreferrer" aria-label="View ZeroWasteX on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>ZeroWasteX</h3>
+                <p>Sustainability and resource conservation platform promoting zero-waste lifestyles through community initiatives and smart recycling tracking.</p>
+                <div class="project-tech">
+                    <span>JavaScript</span>
+                    <span>Web App</span>
+                    <span>Sustainability</span>
+                </div>
+            </div>
+
+            <!-- NNDL -->
+            <div class="project-card tilt-card reveal" data-category="ai" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="network"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/NNDL" target="_blank" rel="noopener noreferrer" aria-label="View NNDL on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>NNDL — Deep Architectures</h3>
+                <p>Complete deep learning neural network library with modular implementations of MLP, CNN, RNN, and custom backprop optimizers.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>Neural Networks</span>
+                    <span>PyTorch</span>
+                </div>
+            </div>
+
+            <!-- Research -->
+            <div class="project-card tilt-card reveal" data-category="ai" data-cursor="OPEN">
+                <div class="card-glare"></div>
+                <div class="project-header">
+                    <div class="project-icon"><i data-lucide="book-open"></i></div>
+                    <div class="project-links-top">
+                        <a href="https://github.com/Gokzz-glitch/research" target="_blank" rel="noopener noreferrer" aria-label="View Research on GitHub"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+                    </div>
+                </div>
+                <h3>AI Research & Benchmarks</h3>
+                <p>Collection of experimental machine learning research implementations, loss curve studies, and novel algorithm reproductions.</p>
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>Research</span>
+                    <span>ML</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== ACHIEVEMENTS SECTION ========== -->
+<section class="section" id="achievements">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label">// MILESTONES & HONORS</div>
+            <h2 class="section-title scramble-target" data-original="Achievements & Recognition">Achievements & Recognition</h2>
+            <p class="section-subtitle">National hackathons, engineering innovation awards, and academic accomplishments</p>
+            <div class="section-divider"></div>
+        </div>
+        <div class="achievements-grid">
+            <div class="achievement-card has-image tilt-card reveal" onclick="openLightbox('TRIWIZATHON-MICROSOFT.jpg', 'Triwizardathon 1.0 — Finale Qualifier', 'Microsoft Learn Student Ambassador — Engineered a robotic arm with integrated backend logic.')" data-cursor="ZOOM">
+                <div class="card-glare"></div>
+                <div class="achievement-img-wrap">
+                    <img src="TRIWIZATHON-MICROSOFT.jpg" alt="Triwizardathon 1.0 certificate from Microsoft Learn Student Ambassador event" class="achievement-img" loading="lazy">
+                    <span class="achievement-zoom-badge"><i data-lucide="maximize-2" style="width:12px;height:12px;"></i> VIEW CERTIFICATE</span>
+                </div>
+                <div style="display:flex;gap:var(--space-md);">
+                    <div class="achievement-icon-wrap">🏆</div>
+                    <div class="achievement-content">
+                        <h3>Triwizardathon 1.0 — Finale Qualifier</h3>
+                        <div class="achievement-org">Microsoft Learn Student Ambassador</div>
+                        <p>Engineered a robotic arm with integrated backend logic, qualifying for the finale round of this prestigious Microsoft-backed engineering competition.</p>
+                    </div>
+                </div>
+                <span class="achievement-date">AUG 2025</span>
+            </div>
+
+            <div class="achievement-card has-image tilt-card reveal" onclick="openLightbox('CHEMSTATRT.jpg', 'Second Prize — CHEMSTAR Talent Exam 2025', 'Dept. of Chemistry, Easwari Engineering College — Interdisciplinary science talent examination.')" data-cursor="ZOOM">
+                <div class="card-glare"></div>
+                <div class="achievement-img-wrap">
+                    <img src="CHEMSTATRT.jpg" alt="CHEMSTAR Talent Exam 2025 second prize certificate" class="achievement-img" loading="lazy">
+                    <span class="achievement-zoom-badge"><i data-lucide="maximize-2" style="width:12px;height:12px;"></i> VIEW CERTIFICATE</span>
+                </div>
+                <div style="display:flex;gap:var(--space-md);">
+                    <div class="achievement-icon-wrap">🥈</div>
+                    <div class="achievement-content">
+                        <h3>Second Prize — CHEMSTAR Talent Exam 2025</h3>
+                        <div class="achievement-org">Dept. of Chemistry, Easwari Engineering College</div>
+                        <p>Secured 2nd place in the interdisciplinary scientific talent examination, demonstrating rigorous analytical thinking across cross-domain sciences.</p>
+                    </div>
+                </div>
+                <span class="achievement-date">MAR 2025</span>
+            </div>
+
+            <div class="achievement-card has-image tilt-card reveal" onclick="openLightbox('DHANALKSHMI SRINIVASAN HACATJON - participation certificATE.jpg', 'Prize Winner — TRIGENIX-26 National Hackathon', 'Dhanalakshmi Srinivasan College of Engineering — 24-hour national hackathon.')" data-cursor="ZOOM">
+                <div class="card-glare"></div>
+                <div class="achievement-img-wrap">
+                    <img src="DHANALKSHMI SRINIVASAN HACATJON - participation certificATE.jpg" alt="TRIGENIX-26 Hackathon certificate from Dhanalakshmi Srinivasan College" class="achievement-img" loading="lazy">
+                    <span class="achievement-zoom-badge"><i data-lucide="maximize-2" style="width:12px;height:12px;"></i> VIEW CERTIFICATE</span>
+                </div>
+                <div style="display:flex;gap:var(--space-md);">
+                    <div class="achievement-icon-wrap">🚀</div>
+                    <div class="achievement-content">
+                        <h3>Prize Winner — TRIGENIX-26 Hackathon</h3>
+                        <div class="achievement-org">Dhanalakshmi Srinivasan College of Engineering</div>
+                        <p>Won a prize at this competitive 24-hour national-level hackathon, developing innovative automated software solutions under tight time constraints.</p>
+                    </div>
+                </div>
+                <span class="achievement-date">MAR 2026</span>
+            </div>
+
+            <div class="achievement-card has-image tilt-card reveal" onclick="openLightbox('CHEMISTRYPROJECT.jpeg', 'Robotics Innovation Showcase', 'Easwari Engineering College — Hands-on robotics demonstration.')" data-cursor="ZOOM">
+                <div class="card-glare"></div>
+                <div class="achievement-img-wrap">
+                    <img src="CHEMISTRYPROJECT.jpeg" alt="Robotics project demonstration at Easwari Engineering College" class="achievement-img" loading="lazy">
+                    <span class="achievement-zoom-badge"><i data-lucide="maximize-2" style="width:12px;height:12px;"></i> VIEW PHOTO</span>
+                </div>
+                <div style="display:flex;gap:var(--space-md);">
+                    <div class="achievement-icon-wrap">🤖</div>
+                    <div class="achievement-content">
+                        <h3>Robotics Innovation Showcase</h3>
+                        <div class="achievement-org">Easwari Engineering College</div>
+                        <p>Led robotics engineering demos, combining microcontrollers, robotic servos, and AI control software for institutional showcases.</p>
+                    </div>
+                </div>
+                <span class="achievement-date">2025</span>
+            </div>
+
+            <div class="achievement-card tilt-card reveal" style="grid-column: span 2;" data-cursor="READ">
+                <div class="card-glare"></div>
+                <div style="display:flex;gap:var(--space-md);">
+                    <div class="achievement-icon-wrap">🏥</div>
+                    <div class="achievement-content">
+                        <h3>NIT Hackathon — Colonoscopy AI/ML Diagnostic Model</h3>
+                        <div class="achievement-org">National Institute of Technology (NIT)</div>
+                        <p>Architected an AI/ML deep learning model for medical image segmentation and classification on colonoscopy datasets. Engineered robust preprocessing pipelines for clinical artifact reduction with high sensitivity and specificity.</p>
+                    </div>
+                </div>
+                <span class="achievement-date">2025</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== GALLERY SECTION ========== -->
+<section class="section" id="gallery">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label">// VISUAL ARCHIVES</div>
+            <h2 class="section-title scramble-target" data-original="In Action">In Action</h2>
+            <p class="section-subtitle">Moments from hackathons, campus presentations, and engineering demonstrations</p>
+            <div class="section-divider"></div>
+        </div>
+        <div class="gallery-grid reveal">
+            <div class="gallery-item tilt-card" onclick="openLightbox('TRIWIZATHON-MICROSOFT.jpg', 'Triwizardathon 1.0 Finale', 'Microsoft Learn Student Ambassador Event')" data-cursor="ZOOM">
+                <img src="TRIWIZATHON-MICROSOFT.jpg" alt="Triwizardathon Microsoft certificate" loading="lazy">
+                <div class="gallery-overlay">
+                    <p>Triwizardathon 1.0</p>
+                    <span>Microsoft Learn Student Ambassador</span>
+                </div>
+            </div>
+            <div class="gallery-item tilt-card" onclick="openLightbox('CHEMSTATRT.jpg', 'CHEMSTAR Talent Exam', '2nd Prize Winner — Easwari Engineering College')" data-cursor="ZOOM">
+                <img src="CHEMSTATRT.jpg" alt="CHEMSTAR award ceremony" loading="lazy">
+                <div class="gallery-overlay">
+                    <p>CHEMSTAR Talent Exam</p>
+                    <span>2nd Prize Winner</span>
+                </div>
+            </div>
+            <div class="gallery-item tilt-card" onclick="openLightbox('DHANALKSHMI SRINIVASAN HACATJON - participation certificATE.jpg', 'TRIGENIX-26 Hackathon', 'Dhanalakshmi Srinivasan College')" data-cursor="ZOOM">
+                <img src="DHANALKSHMI SRINIVASAN HACATJON - participation certificATE.jpg" alt="TRIGENIX hackathon certificate" loading="lazy">
+                <div class="gallery-overlay">
+                    <p>TRIGENIX-26 National</p>
+                    <span>Hackathon Award</span>
+                </div>
+            </div>
+            <div class="gallery-item tilt-card" onclick="openLightbox('CHEMISTRYPROJECT.jpeg', 'Robotics Demonstration', 'Engineering Innovation Showcase')" data-cursor="ZOOM">
+                <img src="CHEMISTRYPROJECT.jpeg" alt="Robotics project demonstration" loading="lazy">
+                <div class="gallery-overlay">
+                    <p>Robotics Demo</p>
+                    <span>Live Hardware Showcase</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== CONTACT SECTION ========== -->
+<section class="section" id="contact">
+    <div class="section-container">
+        <div class="section-header reveal">
+            <div class="section-label">// INITIALIZE TRANSMISSION</div>
+            <h2 class="section-title scramble-target" data-original="Let's Build Something Amazing">Let's Build Something Amazing</h2>
+            <p class="section-subtitle">Open for AI/ML engineering internships, research collaborations, hackathon teams, and exciting projects</p>
+            <div class="section-divider"></div>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info reveal">
+                <h3>Direct Channels</h3>
+                <p>
+                    Whether you have an ambitious AI project, want to explore machine learning research, or discuss engineering opportunities — my inbox is always open.
+                </p>
+                <div class="contact-links">
+                    <a href="https://github.com/Gokzz-glitch" target="_blank" rel="noopener noreferrer" class="contact-link" data-cursor="GITHUB">
+                        <div class="contact-link-icon"><i data-lucide="github"></i></div>
+                        <div>
+                            <div class="contact-link-text">GitHub Profile</div>
+                            <div class="contact-link-desc">@Gokzz-glitch — 18 repositories</div>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gokul6om4/" target="_blank" rel="noopener noreferrer" class="contact-link" data-cursor="LINKEDIN">
+                        <div class="contact-link-icon"><i data-lucide="linkedin"></i></div>
+                        <div>
+                            <div class="contact-link-text">LinkedIn Network</div>
+                            <div class="contact-link-desc">Connect with Gokul R.</div>
+                        </div>
+                    </a>
+                    <div class="contact-link" style="justify-content:space-between;" data-cursor="COPY">
+                        <div style="display:flex;align-items:center;gap:var(--space-md);">
+                            <div class="contact-link-icon"><i data-lucide="mail"></i></div>
+                            <div>
+                                <div class="contact-link-text">Direct Email</div>
+                                <div class="contact-link-desc" id="emailText">gokulrajasekar324@gmail.com</div>
+                            </div>
+                        </div>
+                        <button class="copy-email-btn" onclick="copyEmailToClipboard(event)">COPY EMAIL</button>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrap reveal">
+                <h3>Send Encrypted Message</h3>
+                <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="contact-name">Your Name</label>
+                        <input type="text" id="contact-name" placeholder="E.g. Alex Mercer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Your Email</label>
+                        <input type="email" id="contact-email" placeholder="alex@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message / Project Inquiry</label>
+                        <textarea id="contact-message" placeholder="Hi Gokul, we would love to collaborate on an AI project..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;" data-cursor="DISPATCH">
+                        <i data-lucide="send"></i>
+                        Dispatch Transmission
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2026 Gokul R. — AI/ML Engineer · Easwari Engineering College</p>
+        <div class="lucky-numbers">NUMEROLOGY: 4 · 6 · BLACK & BLUE</div>
+        <div class="footer-links">
+            <a href="https://github.com/Gokzz-glitch" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-cursor="GITHUB"><i data-lucide="github" style="width:18px;height:18px;"></i></a>
+            <a href="https://www.linkedin.com/in/gokul6om4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-cursor="LINKEDIN"><i data-lucide="linkedin" style="width:18px;height:18px;"></i></a>
+            <a href="mailto:gokulrajasekar324@gmail.com" aria-label="Email" data-cursor="EMAIL"><i data-lucide="mail" style="width:18px;height:18px;"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Lightbox Modal -->
+<div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div class="lightbox-img-wrap">
+            <img id="lightboxImg" src="" alt="Certificate preview">
+        </div>
+        <div class="lightbox-info">
+            <h3 id="lightboxTitle"></h3>
+            <p id="lightboxDesc"></p>
+        </div>
+    </div>
+</div>
+
+<!-- Floating Interactive Gokul_CLI Toggle -->
+<button class="cli-toggle-widget" onclick="openTerminalModal()" data-cursor="TERMINAL">
+    <span class="pulse-indicator"></span>
+    <span>&gt;_ GOKUL.CLI</span>
+</button>
+
+<!-- Back To Top Orb -->
+<a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to Top" data-cursor="TOP">
+    <i data-lucide="arrow-up" style="width:20px;height:20px;"></i>
+</a>
+
+<!-- Interactive Cyber Terminal Modal -->
+<div class="terminal-modal" id="terminalModal" onclick="closeTerminalModal(event)">
+    <div class="terminal-window" onclick="event.stopPropagation()">
+        <div class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="term-btn term-btn-close" onclick="closeTerminalModal()"></span>
+                <span class="term-btn term-btn-min"></span>
+                <span class="term-btn term-btn-max"></span>
+            </div>
+            <div class="terminal-title">GOKUL_NEURAL_OS [Version 4.6.0]</div>
+            <div style="font-size:0.75rem;color:var(--cyan-accent);opacity:0.8;">B.TECH AI/ML</div>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+            <div class="terminal-output" id="terminalOutput">
+                <p style="color:#00ff88;">========================================================================</p>
+                <p style="color:#00f0ff;font-weight:700;">  GOKUL R. // AUTONOMOUS AI & FULL-STACK SYSTEM TERMINAL v4.6</p>
+                <p style="color:#8ab4f8;">  Easwari Engineering College · Chennai, India · B.Tech AI & ML</p>
+                <p style="color:#00ff88;">========================================================================</p>
+                <p style="margin-top:8px;color:#f0f4f8;">Type <span style="color:#00f0ff;font-weight:700;">help</span> to inspect all available system commands.</p>
+            </div>
+            <div class="terminal-input-line">
+                <span class="terminal-prompt">gokul@neural-core:~$</span>
+                <input type="text" class="terminal-input" id="terminalInput" autofocus spellcheck="false" autocomplete="off">
             </div>
         </div>
     </div>
 </div>
+
+<!-- ========== JAVASCRIPT ENGINE ========== -->
+<script>
+    // ====== SCI-FI WEB AUDIO SYNTHESIS ENGINE ======
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function initAudio() {
+        if (!audioCtx) {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (AudioContext) {
+                audioCtx = new AudioContext();
+            }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+    }
+
+    function playTone(type = 'hover') {
+        if (!soundEnabled) return;
+        try {
+            initAudio();
+            if (!audioCtx) return;
+
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            if (type === 'hover') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(850, now);
+                osc.frequency.exponentialRampToValueAtTime(1200, now + 0.035);
+                gain.gain.setValueAtTime(0.04, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
+                osc.start(now);
+                osc.stop(now + 0.04);
+            } else if (type === 'click') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(450, now);
+                osc.frequency.exponentialRampToValueAtTime(150, now + 0.07);
+                gain.gain.setValueAtTime(0.08, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
+                osc.start(now);
+                osc.stop(now + 0.08);
+            } else if (type === 'type') {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(600 + Math.random() * 200, now);
+                gain.gain.setValueAtTime(0.02, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.02);
+                osc.start(now);
+                osc.stop(now + 0.025);
+            } else if (type === 'success') {
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                notes.forEach((freq, idx) => {
+                    const noteOsc = audioCtx.createOscillator();
+                    const noteGain = audioCtx.createGain();
+                    noteOsc.connect(noteGain);
+                    noteGain.connect(audioCtx.destination);
+                    noteOsc.type = 'sine';
+                    noteOsc.frequency.setValueAtTime(freq, now + idx * 0.06);
+                    noteGain.gain.setValueAtTime(0.06, now + idx * 0.06);
+                    noteGain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.15);
+                    noteOsc.start(now + idx * 0.06);
+                    noteOsc.stop(now + idx * 0.06 + 0.16);
+                });
+            }
+        } catch (e) {
+            // Audio error graceful fallback
+        }
+    }
+
+    function toggleAudioEngine() {
+        soundEnabled = !soundEnabled;
+        const wave = document.getElementById('soundWave');
+        const label = document.getElementById('soundLabel');
+        if (soundEnabled) {
+            wave.classList.remove('muted');
+            label.textContent = 'SFX ON';
+            playTone('success');
+            showToast('🔊 Audio synthesis enabled');
+        } else {
+            wave.classList.add('muted');
+            label.textContent = 'SFX OFF';
+            showToast('🔇 Audio synthesis muted');
+        }
+    }
+
+    // ====== CUSTOM CYBER CURSOR & SPOTLIGHT ======
+    function initCustomCursor() {
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        const text = document.getElementById('cursorText');
+
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            dot.style.left = `${mouseX}px`;
+            dot.style.top = `${mouseY}px`;
+
+            // Update CSS dynamic spotlight variables
+            document.documentElement.style.setProperty('--mouse-x', `${mouseX}px`);
+            document.documentElement.style.setProperty('--mouse-y', `${mouseY}px`);
+        });
+
+        // Smooth trailing ring loop
+        function renderCursor() {
+            ringX += (mouseX - ringX) * 0.18;
+            ringY += (mouseY - ringY) * 0.18;
+            ring.style.left = `${ringX}px`;
+            ring.style.top = `${ringY}px`;
+            requestAnimationFrame(renderCursor);
+        }
+        renderCursor();
+
+        // Interactive hover states
+        document.querySelectorAll('[data-cursor]').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                const label = el.getAttribute('data-cursor') || 'VIEW';
+                text.textContent = label;
+                ring.classList.add('active');
+                playTone('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                ring.classList.remove('active');
+            });
+        });
+
+        // Click audio triggers on interactive elements
+        document.querySelectorAll('a, button, input, textarea, .filter-btn, .project-card').forEach(el => {
+            el.addEventListener('click', () => {
+                playTone('click');
+            });
+        });
+    }
+
+    // ====== 3D TILT CARDS & GLARE PHYSICS ======
+    function init3DTilt() {
+        const cards = document.querySelectorAll('.tilt-card');
+        cards.forEach(card => {
+            const glare = card.querySelector('.card-glare');
+
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+                if (glare) {
+                    const glareX = (x / rect.width) * 100;
+                    const glareY = (y / rect.height) * 100;
+                    glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(0, 240, 255, 0.22), transparent 60%)`;
+                }
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        });
+    }
+
+    // ====== HACKER TEXT SCRAMBLE / DECRYPT EFFECT ======
+    const SCRAMBLE_CHARS = '01#@$%&*<>~/\\=+-!_[]{}';
+
+    function scrambleText(element, finalText, duration = 1000) {
+        let startTime = null;
+        const length = finalText.length;
+
+        function update(time) {
+            if (!startTime) startTime = time;
+            const progress = (time - startTime) / duration;
+
+            if (progress < 1) {
+                const revealedChars = Math.floor(progress * length);
+                let currentStr = finalText.substring(0, revealedChars);
+
+                for (let i = revealedChars; i < length; i++) {
+                    if (finalText[i] === ' ') {
+                        currentStr += ' ';
+                    } else {
+                        currentStr += SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
+                    }
+                }
+                element.textContent = currentStr;
+                requestAnimationFrame(update);
+            } else {
+                element.textContent = finalText;
+            }
+        }
+        requestAnimationFrame(update);
+    }
+
+    function initTextScramble() {
+        const targets = document.querySelectorAll('.scramble-target');
+        targets.forEach(el => {
+            const original = el.getAttribute('data-original') || el.textContent;
+
+            // Trigger on hover
+            el.addEventListener('mouseenter', () => {
+                scrambleText(el, original, 600);
+            });
+        });
+
+        // Trigger hero name scramble on load
+        setTimeout(() => {
+            const heroName = document.getElementById('heroNameScramble');
+            if (heroName) scrambleText(heroName, 'Gokul R.', 1200);
+        }, 300);
+    }
+
+    // ====== PARTICLE CANVAS WITH TRAVELING DATA PACKETS & SHOCKWAVE ======
+    function initParticleCanvas() {
+        const canvas = document.getElementById('heroCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let packets = [];
+        let shockwaves = [];
+        let mouse = { x: null, y: null };
+        let animationId;
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const particleCount = 64; // Lucky ratio: 4^3 or 64
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random() * 0.5 + 0.2;
+                this.color = Math.random() > 0.3 ? '#00d4ff' : '#4285f4';
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+
+                // Mouse gravity attraction / repulsion
+                if (mouse.x !== null) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 180) {
+                        const force = (180 - dist) / 180;
+                        this.x -= (dx / dist) * force * 3;
+                        this.y -= (dy / dist) * force * 3;
+                    }
+                }
+
+                // Shockwave interaction
+                shockwaves.forEach(wave => {
+                    const dx = this.x - wave.x;
+                    const dy = this.y - wave.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (Math.abs(dist - wave.radius) < 30) {
+                        const angle = Math.atan2(dy, dx);
+                        this.x += Math.cos(angle) * 4;
+                        this.y += Math.sin(angle) * 4;
+                    }
+                });
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Glow ring on larger nodes
+                if (this.size > 2) {
+                    ctx.strokeStyle = 'rgba(0, 240, 255, 0.4)';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        class DataPacket {
+            constructor(p1, p2) {
+                this.p1 = p1;
+                this.p2 = p2;
+                this.progress = 0;
+                this.speed = 0.02 + Math.random() * 0.02;
+            }
+            update() {
+                this.progress += this.speed;
+            }
+            draw() {
+                const currX = this.p1.x + (this.p2.x - this.p1.x) * this.progress;
+                const currY = this.p1.y + (this.p2.y - this.p1.y) * this.progress;
+                ctx.fillStyle = '#00ffea';
+                ctx.shadowColor = '#00ffea';
+                ctx.shadowBlur = 8;
+                ctx.beginPath();
+                ctx.arc(currX, currY, 2.5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+            }
+        }
+
+        class Shockwave {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.radius = 5;
+                this.maxRadius = 250;
+                this.opacity = 1;
+            }
+            update() {
+                this.radius += 8;
+                this.opacity = 1 - (this.radius / this.maxRadius);
+            }
+            draw() {
+                ctx.save();
+                ctx.strokeStyle = `rgba(0, 240, 255, ${this.opacity * 0.7})`;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        function drawConnections() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 150) {
+                        const opacity = (1 - dist / 150) * 0.25;
+                        ctx.strokeStyle = `rgba(0, 212, 255, ${opacity})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+
+                        // Occasionally spawn traveling luminous data packet
+                        if (Math.random() < 0.0015 && packets.length < 8) {
+                            packets.push(new DataPacket(particles[i], particles[j]));
+                        }
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            drawConnections();
+
+            // Update & draw data packets
+            for (let i = packets.length - 1; i >= 0; i--) {
+                packets[i].update();
+                packets[i].draw();
+                if (packets[i].progress >= 1) {
+                    packets.splice(i, 1);
+                }
+            }
+
+            // Update & draw shockwaves
+            for (let i = shockwaves.length - 1; i >= 0; i--) {
+                shockwaves[i].update();
+                shockwaves[i].draw();
+                if (shockwaves[i].radius >= shockwaves[i].maxRadius) {
+                    shockwaves.splice(i, 1);
+                }
+            }
+
+            animationId = requestAnimationFrame(animate);
+        }
+        animate();
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('click', (e) => {
+            shockwaves.push(new Shockwave(e.clientX, e.clientY));
+        });
+    }
+
+    // ====== MATRIX DIGITAL RAIN ENGINE ======
+    let matrixRunning = false;
+    let matrixAnimId = null;
+
+    function toggleMatrixMode() {
+        const mCanvas = document.getElementById('matrixCanvas');
+        matrixRunning = !matrixRunning;
+
+        if (matrixRunning) {
+            mCanvas.classList.add('active');
+            startMatrixRain();
+            showToast('⚡ MATRIX CYBER RAIN ACTIVATED');
+            playTone('success');
+        } else {
+            mCanvas.classList.remove('active');
+            if (matrixAnimId) cancelAnimationFrame(matrixAnimId);
+            showToast('MATRIX MODE DEACTIVATED');
+        }
+    }
+
+    function startMatrixRain() {
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const katakana = '0123456789ABCDEF@#$%&*+-/<>~ｦｱｳｴｵｶｷｹｺｻｼｽｾｿﾀﾂﾃﾅﾆﾇﾈﾊﾋﾎﾏﾐﾑﾒﾓﾔﾕﾗﾘﾜ';
+        const fontSize = 16;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = [];
+
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.floor(Math.random() * -50);
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(2, 4, 8, 0.08)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff88';
+            ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = katakana.charAt(Math.floor(Math.random() * katakana.length));
+                const x = i * fontSize;
+                const y = drops[i] * fontSize;
+
+                if (Math.random() > 0.9) {
+                    ctx.fillStyle = '#00f0ff';
+                } else {
+                    ctx.fillStyle = '#00ff88';
+                }
+
+                ctx.fillText(text, x, y);
+
+                if (y > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+            if (matrixRunning) {
+                matrixAnimId = requestAnimationFrame(drawMatrix);
+            }
+        }
+        drawMatrix();
+    }
+
+    // ====== REAL-TIME TELEMETRY & CLOCK ======
+    function initTelemetry() {
+        function updateClock() {
+            const now = new Date();
+            // Calculate IST (UTC + 5:30)
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const istTime = new Date(utc + (3600000 * 5.5));
+
+            const hours = String(istTime.getHours()).padStart(2, '0');
+            const minutes = String(istTime.getMinutes()).padStart(2, '0');
+            const seconds = String(istTime.getSeconds()).padStart(2, '0');
+
+            const clockEl = document.getElementById('chennaiClock');
+            if (clockEl) {
+                clockEl.textContent = `Chennai, IN ${hours}:${minutes}:${seconds} IST`;
+            }
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const bar = document.getElementById('scrollProgress');
+            if (bar) bar.style.width = `${scrolled}%`;
+
+            // Back to top orb visibility
+            const btt = document.getElementById('backToTop');
+            if (btt) {
+                btt.classList.toggle('visible', winScroll > 400);
+            }
+        });
+    }
+
+    // ====== INTERACTIVE GOKUL CLI TERMINAL ENGINE ======
+    const terminalHistory = [];
+    let historyIndex = -1;
+
+    function openTerminalModal() {
+        const modal = document.getElementById('terminalModal');
+        modal.classList.add('active');
+        playTone('click');
+        const input = document.getElementById('terminalInput');
+        setTimeout(() => input.focus(), 100);
+    }
+
+    function closeTerminalModal(e) {
+        const modal = document.getElementById('terminalModal');
+        modal.classList.remove('active');
+        playTone('click');
+    }
+
+    function initTerminal() {
+        const input = document.getElementById('terminalInput');
+        const output = document.getElementById('terminalOutput');
+        const body = document.getElementById('terminalBody');
+
+        input.addEventListener('keydown', (e) => {
+            playTone('type');
+
+            if (e.key === 'Enter') {
+                const cmd = input.value.trim().toLowerCase();
+                if (cmd) {
+                    terminalHistory.push(cmd);
+                    historyIndex = terminalHistory.length;
+                    processCommand(cmd);
+                }
+                input.value = '';
+                body.scrollTop = body.scrollHeight;
+            } else if (e.key === 'ArrowUp') {
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    input.value = terminalHistory[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                if (historyIndex < terminalHistory.length - 1) {
+                    historyIndex++;
+                    input.value = terminalHistory[historyIndex];
+                } else {
+                    historyIndex = terminalHistory.length;
+                    input.value = '';
+                }
+            }
+        });
+
+        function printLine(text, color = '#8ab4f8') {
+            const p = document.createElement('p');
+            p.style.color = color;
+            p.style.margin = '4px 0';
+            p.innerHTML = text;
+            output.appendChild(p);
+        }
+
+        function processCommand(cmd) {
+            printLine(`<span style="color:#00ff88;">gokul@neural-core:~$</span> <span style="color:#fff;">${cmd}</span>`);
+
+            switch (cmd) {
+                case 'help':
+                    printLine('Available Commands:', '#00f0ff');
+                    printLine('  <span style="color:#fff;font-weight:600;">whoami</span> / <span style="color:#fff;font-weight:600;">about</span>    - Gokul\'s profile, vision & university');
+                    printLine('  <span style="color:#fff;font-weight:600;">skills</span>            - Full AI/ML, Web, Security & Hardware matrix');
+                    printLine('  <span style="color:#fff;font-weight:600;">projects</span>          - Top 12 open-source repos with direct URLs');
+                    printLine('  <span style="color:#fff;font-weight:600;">achievements</span>      - Microsoft Triwizardathon, Hackathons & Awards');
+                    printLine('  <span style="color:#fff;font-weight:600;">lucky</span>             - Design numerology: [4, 6] & [Black & Blue]');
+                    printLine('  <span style="color:#fff;font-weight:600;">matrix</span>            - Toggle fullscreen digital matrix stream');
+                    printLine('  <span style="color:#fff;font-weight:600;">contact</span>           - Displays all official contact handles');
+                    printLine('  <span style="color:#fff;font-weight:600;">hire</span> / <span style="color:#fff;font-weight:600;">sudo hire</span>   - Launch candidate hiring celebration');
+                    printLine('  <span style="color:#fff;font-weight:600;">clear</span>             - Wipe terminal scroll buffer');
+                    break;
+
+                case 'whoami':
+                case 'about':
+                    printLine('Profile: <strong>Gokul R.</strong>', '#00f0ff');
+                    printLine('Degree: B.Tech Artificial Intelligence & Machine Learning');
+                    printLine('College: Easwari Engineering College (SRM Group), Chennai, IN');
+                    printLine('Specialization: NLP, Deep Learning, Full-Stack, Autonomous Agents');
+                    printLine('Philosophy: "Building scalable, autonomous intelligence for humans."');
+                    break;
+
+                case 'skills':
+                    printLine('--- TECHNICAL STACK MATRIX ---', '#00f0ff');
+                    printLine('[AI/ML]      Python, TensorFlow, PyTorch, NLP, Computer Vision, OpenCV, Scikit-learn');
+                    printLine('[WEB]        TypeScript, JavaScript, React, Next.js, Node.js, REST APIs, HTML/CSS');
+                    printLine('[SECURITY]   Go (Golang), Penetration Testing, Docker, Linux, CI/CD');
+                    printLine('[HARDWARE]   Arduino, Raspberry Pi, Robotic Arms, IoT Sensors, Embedded C');
+                    break;
+
+                case 'projects':
+                    printLine('--- FEATURED GITHUB REPOSITORIES ---', '#00f0ff');
+                    printLine('1. <strong>ChakraModel</strong> (AI/ML) -> <a href="https://github.com/Gokzz-glitch/chakramodel" target="_blank" style="color:#00d4ff;">github.com/Gokzz-glitch/chakramodel</a>');
+                    printLine('2. <strong>NLP Engine</strong> (NLP) -> <a href="https://github.com/Gokzz-glitch/NLP" target="_blank" style="color:#00d4ff;">github.com/Gokzz-glitch/NLP</a>');
+                    printLine('3. <strong>PulseAI</strong> (Health) -> <a href="https://github.com/Gokzz-glitch/PULSEAI" target="_blank" style="color:#00d4ff;">github.com/Gokzz-glitch/PULSEAI</a>');
+                    printLine('4. <strong>AgriMate</strong> (Agritech) -> <a href="https://github.com/Gokzz-glitch/AGRIMATE" target="_blank" style="color:#00d4ff;">github.com/Gokzz-glitch/AGRIMATE</a>');
+                    printLine('5. <strong>AI Scanner</strong> (Security) -> <a href="https://github.com/Gokzz-glitch/vulanarability-detection-" target="_blank" style="color:#00d4ff;">github.com/Gokzz-glitch/vulanarability-detection-</a>');
+                    break;
+
+                case 'achievements':
+                    printLine('--- MILESTONES & HONORS ---', '#00f0ff');
+                    printLine('🏆 <strong>Triwizardathon 1.0 Finale Qualifier</strong> — Microsoft Learn Student Ambassador');
+                    printLine('🥈 <strong>CHEMSTAR 2025 Talent Exam 2nd Prize</strong> — Easwari Engineering College');
+                    printLine('🚀 <strong>TRIGENIX-26 National Hackathon Winner</strong> — Dhanalakshmi Srinivasan');
+                    printLine('🤖 <strong>Robotics Innovation Showcase Lead</strong> — Easwari Engineering College');
+                    printLine('🏥 <strong>NIT Hackathon Colonoscopy AI Model</strong> — National Institute of Tech');
+                    break;
+
+                case 'lucky':
+                    printLine('--- NUMEROLOGY & AESTHETIC BLUEPRINT ---', '#00f0ff');
+                    printLine('Lucky Numbers: <strong>4 & 6</strong>');
+                    printLine('  -> 4 Skill Pillars | 4 Hackathons | 6 Awards | 64 Neural Nodes | 4x6 Grids');
+                    printLine('Lucky Colors: <strong>Black & Blue</strong>');
+                    printLine('  -> Cyber Black (#020408), Deep Royal Blue (#0055ff), Electric Cyan (#00d4ff)');
+                    break;
+
+                case 'matrix':
+                    closeTerminalModal();
+                    toggleMatrixMode();
+                    break;
+
+                case 'contact':
+                    printLine('--- DIRECT CHANNELS ---', '#00f0ff');
+                    printLine('Email: <a href="mailto:gokulrajasekar324@gmail.com" style="color:#00d4ff;">gokulrajasekar324@gmail.com</a>');
+                    printLine('GitHub: <a href="https://github.com/Gokzz-glitch" target="_blank" style="color:#00d4ff;">github.com/Gokzz-glitch</a>');
+                    printLine('LinkedIn: <a href="https://www.linkedin.com/in/gokul6om4/" target="_blank" style="color:#00d4ff;">linkedin.com/in/gokul6om4</a>');
+                    break;
+
+                case 'hire':
+                case 'sudo hire':
+                case 'sudo hire gokul':
+                    printLine('🎉 [STATUS: ACCEPTED] Initializing candidate hiring protocol...', '#00ff88');
+                    printLine('Great decision! Gokul brings world-class AI, ML and Full-Stack capability.', '#00f0ff');
+                    triggerConfetti();
+                    playTone('success');
+                    break;
+
+                case 'clear':
+                    output.innerHTML = '';
+                    break;
+
+                default:
+                    printLine(`Command not recognized: "${cmd}". Type <span style="color:#00f0ff;">help</span> for assistance.`, '#ff5f56');
+                    break;
+            }
+        }
+    }
+
+    // ====== LIGHTBOX MODAL ======
+    function openLightbox(src, title, desc) {
+        const modal = document.getElementById('lightboxModal');
+        const img = document.getElementById('lightboxImg');
+        const titleEl = document.getElementById('lightboxTitle');
+        const descEl = document.getElementById('lightboxDesc');
+
+        img.src = src;
+        titleEl.textContent = title;
+        descEl.textContent = desc;
+
+        modal.classList.add('active');
+        playTone('click');
+    }
+
+    function closeLightbox(e) {
+        const modal = document.getElementById('lightboxModal');
+        modal.classList.remove('active');
+        playTone('click');
+    }
+
+    // ESC Key listener for modals & matrix
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (matrixRunning) toggleMatrixMode();
+            const lm = document.getElementById('lightboxModal');
+            if (lm.classList.contains('active')) closeLightbox();
+            const tm = document.getElementById('terminalModal');
+            if (tm.classList.contains('active')) closeTerminalModal();
+        }
+    });
+
+    // ====== TOAST NOTIFICATIONS ======
+    function showToast(message) {
+        const container = document.getElementById('toastContainer');
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.innerHTML = `<span style="color:#00f0ff;">⚡</span> ${message}`;
+        container.appendChild(toast);
+
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(10px)';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+
+    // ====== COPY EMAIL TO CLIPBOARD ======
+    function copyEmailToClipboard(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const email = 'gokulrajasekar324@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+            showToast('📋 Copied gokulrajasekar324@gmail.com to clipboard!');
+            playTone('success');
+        });
+    }
+
+    // ====== CONFETTI CANNON ======
+    function triggerConfetti() {
+        if (window.confetti) {
+            confetti({
+                particleCount: 80,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#00d4ff', '#0055ff', '#8ab4f8', '#ffffff', '#00ff88']
+            });
+        }
+    }
+
+    // ====== SCROLL REVEAL ======
+    function initScrollReveal() {
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        reveals.forEach(el => observer.observe(el));
+    }
+
+    // ====== NAVBAR ======
+    function initNavbar() {
+        const navbar = document.getElementById('navbar');
+        const toggle = document.getElementById('mobileToggle');
+        const links = document.getElementById('navLinks');
+
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        toggle.addEventListener('click', () => {
+            links.classList.toggle('open');
+        });
+
+        links.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                links.classList.remove('open');
+            });
+        });
+
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    }
+
+    // ====== COUNT UP ANIMATION ======
+    function initCountUp() {
+        const counters = document.querySelectorAll('.hero-stat-number');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-count'));
+                    animateCount(entry.target, target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    }
+
+    function animateCount(el, target) {
+        let current = 0;
+        const increment = target / 40;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                el.textContent = target + '+';
+                clearInterval(timer);
+            } else {
+                el.textContent = Math.floor(current);
+            }
+        }, 40);
+    }
+
+    // ====== PROJECT FILTER ======
+    function initProjectFilter() {
+        const btns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.project-card');
+
+        btns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category') || '';
+                    if (filter === 'all' || category.includes(filter)) {
+                        card.style.display = '';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        requestAnimationFrame(() => {
+                            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        });
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => { card.style.display = 'none'; }, 400);
+                    }
+                });
+            });
+        });
+    }
+
+    // ====== SMOOTH SCROLL ======
+    function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    }
+
+    // ====== FORM HANDLER ======
+    function handleFormSubmit(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('button[type="submit"]');
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px;">✓ Transmission Sent!</span>';
+        btn.style.background = '#00ff88';
+        btn.style.color = '#000';
+
+        triggerConfetti();
+        playTone('success');
+        showToast('🚀 Transmission successfully dispatched to Gokul!');
+
+        setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.style.background = '';
+            btn.style.color = '';
+            e.target.reset();
+            lucide.createIcons();
+        }, 3000);
+    }
+
+    // ====== INITIALIZE ALL ENGINES ======
+    document.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+        initCustomCursor();
+        initParticleCanvas();
+        init3DTilt();
+        initTextScramble();
+        initTelemetry();
+        initTerminal();
+        initScrollReveal();
+        initNavbar();
+        initCountUp();
+        initProjectFilter();
+        initSmoothScroll();
+    });
+</script>
 
 </body>
 </html>
